@@ -18,7 +18,12 @@ public class TwilioService {
 
     public Message sendSms(String to, String message) {
         Twilio.init(accountSid, authToken);
-        Message msg = Message.creator(new PhoneNumber(to), new PhoneNumber("+16184861593"), message).create();
+        Message msg = null;
+        try {
+        	msg = Message.creator(new PhoneNumber(to), new PhoneNumber("++16184861593"), message).create();
+		} catch (Exception e) {
+			System.out.println("Message sent failed");
+		}
         return msg;
     }
 }
