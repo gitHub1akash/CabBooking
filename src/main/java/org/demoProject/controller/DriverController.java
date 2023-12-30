@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.twilio.rest.api.v2010.account.Message;
+
 @Controller
 @RequestMapping("/driver")
 @SessionAttributes("driverid")
@@ -58,6 +60,7 @@ public class DriverController {
 		if (driver2 == null) {
 			return "driver/addunsuccess";
 		} else {
+			Message msg = twilioService.sendSms(("+91" + driver.getMobileNumber()),"Dear "+ driver.getUserName()+ "\nYour have been successfully registered in our system. \nUserName :"+ driver.getUserName()+" \nPassword :" +driver.getPassword() + "\nDon't forget to change your password");
 			return "driver/addsuccess";
 		}
 	}
@@ -186,7 +189,7 @@ public class DriverController {
 
 	@PostMapping("/finddriver")
 	public String findDriverProcess(@ModelAttribute("driver") Driver driver, Model model) {
-		driver = driverService.findById(driver.getDriverId());
+		driver = driverService.findByUserName(driver.getUserName());
 
 		if (driver == null)
 			return null;
@@ -225,8 +228,8 @@ public class DriverController {
 		if (driver != null) {
 			model.addAttribute("driverid", driver.getDriverId());
 			return "driver/profile"; // here add welcome $name then logged in
-		} else
-			return "driver/profilenotfound";
+		} 
+		return "driver/profilenotfound";
 	}
 
 	@GetMapping("/checkloggedin")
@@ -242,7 +245,7 @@ public class DriverController {
 	public String logout(Model model) {
 		LoginToken token = new LoginToken();
 		model.addAttribute("logintoken", token);
-	    return "admin/loginadmin";
+	    return "driver/logindriver";
 	}
 
 }

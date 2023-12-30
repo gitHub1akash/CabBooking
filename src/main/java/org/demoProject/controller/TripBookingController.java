@@ -11,6 +11,7 @@ import org.demoProject.model.Driver;
 import org.demoProject.model.TripBooking;
 import org.demoProject.model.TripBooking;
 import org.demoProject.service.AddressService;
+import org.demoProject.service.CabService;
 import org.demoProject.service.CustomerService;
 import org.demoProject.service.DriverService;
 import org.demoProject.service.TripBookingService;
@@ -48,22 +49,47 @@ public class TripBookingController {
 	@Autowired
     private TwilioService twilioService;
 	
+	@Autowired
+	private CabService cabService;
+	
 	@GetMapping("/settrip")
 	public String settrip(Model model)
 	{
 		TripBooking trip=new TripBooking();
 		Integer customerId = (Integer) model.getAttribute("customerid");
 		Customer customer = customerService.findById(customerId);
+		
+		List<String> fromLoc = tripbookingservice.getAllLoc1();
+		
+		List<String> toLoc = tripbookingservice.getAllLoc2();
+		
+		List<String> carType = cabService.listAllCarType();
+		
 		trip.setCustomerId(customer);
 		trip.setStatus(true);
 		trip.setDriverId(new Driver());
 		model.addAttribute("trip",trip);
+		model.addAttribute("from", fromLoc);
+		model.addAttribute("to", toLoc);
+		model.addAttribute("cabtype", carType);
+		TripBooking temp = (TripBooking) model.getAttribute("trip");
+//		List<String> toLoc2 = tripbookingservice.getAllLoc2AgainstLoc1(temp.getFromLocation());
+//System.out.println(toLoc2);
 		return "tripbooking/settrip";
 	}
 	@PostMapping("/addtrip")
 	public String addtrip(@ModelAttribute("trip")TripBooking trip,Model model)
 	{
-		Address address = addressService.findByLocation1AndLocation2(trip.getFromLocation(), trip.getToLocation());
+		Address address;
+		try {
+			address = addressService.findByLocation1AndLocation2(trip.getFromLocation(), trip.getToLocation());
+		}
+		catch(Exception e) {
+			return "tripbooking/addunsuccess";
+		}
+		if(address != null && address.getLocation1().equals(address.getLocation2())) {
+			return "tripbooking/sameaddress";
+		}
 		System.out.println("address is : "+address);
 		List<Driver> driverList;
 		if(trip.getDriverId().getCab().getCarType().equals("bike"))
@@ -74,12 +100,16 @@ public class TripBookingController {
 				driverList = driverService.findBy4SeaterOrderByRating();
 		else
 			driverList = driverService.findBy4SeaterOrderByRating();
-		List<TripBooking> tripList = tripbookingservice.findByStatus(true);
+		List<TripBooking> tripList = tripbookingservice.findByStatusDate(true,trip.getFromDateTime());
 		List<Driver> tripDriver = new ArrayList<>();
 		for (TripBooking trips : tripList) {
 			tripDriver.add(trips.getDriverId());
 		}
 		driverList.removeAll(tripDriver);
+		if(driverList.size() == 0) {
+			model.addAttribute("trip",trip);
+			return "tripbooking/drivernotfound";
+		}
 		System.out.println(driverList);
 		trip.setDriverId(driverList.get(driverList.size()-1));
 		if(address==null)
