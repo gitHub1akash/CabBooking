@@ -58,7 +58,7 @@ public class CustomerController {
 		{
 		
 		  customerservice.addCustomer(customer);
-		  twilioService.sendSms(("+91" + customer.getMobileNumber()),"Dear "+ customer.getUserName()+ "\nYou have registered yourself as customer.");
+		 // twilioService.sendSms(("+91" + customer.getMobileNumber()),"Dear "+ customer.getUserName()+ "\nYou have registered yourself as customer.");
 		  return "customer/addsuccess";
 		}
 			return "customer/addunsuccess";
@@ -107,7 +107,7 @@ public class CustomerController {
 		
 		Customer cust=customerservice.updateCustomer(customer);
 		if(cust!=null) {
-			twilioService.sendSms(("+91" + customer.getMobileNumber()),"Dear "+ customer.getUserName()+  "\nYour details has been updated.");
+			//twilioService.sendSms(("+91" + customer.getMobileNumber()),"Dear "+ customer.getUserName()+  "\nYour details has been updated.");
 			return "customer/modifysuccess";
 		}
 		else

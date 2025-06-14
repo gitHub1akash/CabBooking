@@ -60,7 +60,7 @@ public class DriverController {
 		if (driver2 == null) {
 			return "driver/addunsuccess";
 		} else {
-			Message msg = twilioService.sendSms(("+91" + driver.getMobileNumber()),"Dear "+ driver.getUserName()+ "\nYour have been successfully registered in our system. \nUserName :"+ driver.getUserName()+" \nPassword :" +driver.getPassword() + "\nDon't forget to change your password");
+			//Message msg = twilioService.sendSms(("+91" + driver.getMobileNumber()),"Dear "+ driver.getUserName()+ "\nYour have been successfully registered in our system. \nUserName :"+ driver.getUserName()+" \nPassword :" +driver.getPassword() + "\nDon't forget to change your password");
 			return "driver/addsuccess";
 		}
 	}

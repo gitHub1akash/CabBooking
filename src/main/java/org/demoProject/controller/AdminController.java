@@ -281,7 +281,7 @@ public class AdminController {
 			System.out.println(adminid);
 			System.out.println(admin.getMobileNumber());
 			model.addAttribute("adminid", adminid);
-			twilioService.sendSms(admin.getMobileNumber(), "You have logged in as admin.");
+			//twilioService.sendSms(admin.getMobileNumber(), "You have logged in as admin.");
 			return "admin/profile"; // here add welcome $name then logged in
 		} 
 		else
@@ -303,7 +303,7 @@ public class AdminController {
 		model.addAttribute("logintoken", token);
 		adminId= null;
 		System.out.println(adminId);
-		twilioService.sendSms(admin.getMobileNumber(), "You have logged out as admin.");
+		//twilioService.sendSms(admin.getMobileNumber(), "You have logged out as admin.");
 	    return "admin/loginadmin";
 	}
 	

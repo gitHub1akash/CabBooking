@@ -15,9 +15,9 @@ public class SmsController {
     @Autowired
     private TwilioService twilioService;
 
-    @GetMapping("/sms")
-    public ResponseEntity<String> sendSms(@RequestParam("to") String to) {
-        twilioService.sendSms(to, "hii");
-        return ResponseEntity.ok("SMS sent successfully!");
-    }
+//    @GetMapping("/sms")
+//    public ResponseEntity<String> sendSms(@RequestParam("to") String to) {
+//        twilioService.sendSms(to, "hii");
+//        return ResponseEntity.ok("SMS sent successfully!");
+//    }
 }
