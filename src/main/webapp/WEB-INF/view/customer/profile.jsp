@@ -21,10 +21,11 @@ pageEncoding="ISO-8859-1"%>
 <body>  
 <div class="alert alert-success"> Logged in successfully</div>
 <%
-String site=new String("http://localhost:5000/customer.html");
+String site = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/customer.html";
 response.setStatus(response.SC_MOVED_TEMPORARILY);
-response.setHeader("Location",site);
-%> 
+response.setHeader("Location", site);
+%>
+
 </div>
 </body>  
 </html>  
