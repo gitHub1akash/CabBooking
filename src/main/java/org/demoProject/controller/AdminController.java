@@ -271,7 +271,8 @@ public class AdminController {
 		LoginToken token = new LoginToken();
 		model.addAttribute("logintoken", token);
 		String site = request.getServerName();
-		System.out.println("SERVER : " + site);
+		int port = request.getServerPort(); 
+		System.out.println("SERVER + port: " + site + " : " + port);
 		return "admin/loginadmin";
 	}
 
