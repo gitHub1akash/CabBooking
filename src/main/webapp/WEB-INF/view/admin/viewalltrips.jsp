@@ -117,7 +117,9 @@ import="java.util.*,org.demoProject.model.*"
                 </tr>
             </thead>
             <!-- out.println("<td>"+trip.getTripBookingId()+" </td>"); -->
+			
             <%
+			String site = request.getServerName();
             List<TripBooking> list = (List<TripBooking>) request.getAttribute("lists");
             int i=1;
             for(TripBooking trip : list)
@@ -125,9 +127,9 @@ import="java.util.*,org.demoProject.model.*"
 
                 out.println("<tr>");
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
-                out.println("<td><a href=\"http://localhost:5000/customer/getcustomer?tripid=" + trip.getTripBookingId() + "\">"+trip.getCustomerId().getUserName()+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/customer/getcustomer?tripid=" + trip.getTripBookingId() + "\">"+trip.getCustomerId().getUserName()+"</a></td>");
 
-                out.println("<td><a href=\"http://localhost:5000/admin/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/admin/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
                 
                 out.println("<td>"+trip.getFromLocation()+" </td>");
                 out.println("<td>"+trip.getToLocation()+" </td>");
@@ -138,7 +140,7 @@ import="java.util.*,org.demoProject.model.*"
                 else{
                   out.println("<td style=\"color : red;\">"+"Canceled"+" </td>");
                 }
-                out.println("<td><a href=\"http://localhost:5000/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
 
       
 
