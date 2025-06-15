@@ -109,9 +109,7 @@ import="java.util.*,org.demoProject.model.*"
             </thead>
             <!-- out.println("<td>" + trip.getFromLocation()    +"</td>"); -->
 			<%
-			String site = "https://" + request.getServerName() + "/customer.html";
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			String site = request.getServerName();
 			%>
             <%
             List<Customer> list = (List<Customer>) request.getAttribute("lists");
