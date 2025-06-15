@@ -2,6 +2,7 @@ package org.demoProject.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.demoProject.dto.LoginToken;
@@ -266,9 +267,10 @@ public class AdminController {
 //	}
 
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String login(Model model,HttpServletRequest request) {
 		LoginToken token = new LoginToken();
 		model.addAttribute("logintoken", token);
+		String site = request.getServerName();
 		return "admin/loginadmin";
 	}
 
