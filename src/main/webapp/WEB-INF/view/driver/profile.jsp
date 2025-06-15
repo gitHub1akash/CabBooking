@@ -21,7 +21,10 @@ pageEncoding="ISO-8859-1"%>
 <body>  
 <div class="alert alert-success"> Logged in successfully</div>
 <%
-String site=new String("http://localhost:5000/driver.html");
+									String site = request.getServerName();
+									%>      
+<%
+String site=new String("http://"+site+"/driver.html");
 response.setStatus(response.SC_MOVED_TEMPORARILY);
 response.setHeader("Location",site);
 %> 

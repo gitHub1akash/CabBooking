@@ -110,6 +110,8 @@ import="java.util.*,org.demoProject.model.*,java.time.*"
                 </tr>
             </thead>
             <!-- out.println("<td>"+trip.getTripBookingId()+" </td>"); -->
+			<%
+												String site = request.getServerName();
             <%
             List<TripBooking> list = (List<TripBooking>) request.getAttribute("trips");
             int i=1;
@@ -133,19 +135,19 @@ import="java.util.*,org.demoProject.model.*,java.time.*"
                 else{
                   out.println("<td style=\"color : red;\">"+"Canceled"+" </td>");
                 }
-                out.println("<td><a href=\"http://localhost:5000/driver/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/driver/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
 
                 if(trip.getStatus() && trip.getFromDateTime().isAfter(now)){
-                  out.println("<td><a href=\"http://localhost:5000/trip/canceltrip?tripid=" + trip.getTripBookingId() + "\" >Cancel Trip</a></td>");
+                  out.println("<td><a href=\"http://"+site+"/trip/canceltrip?tripid=" + trip.getTripBookingId() + "\" >Cancel Trip</a></td>");
                 }
                 else if(trip.getStatus() && trip.getFromDateTime().isBefore(now)){
-                  out.println("<td><a href=\"http://localhost:5000/driver/ratedriver?driverid=" + trip.getDriverId().getDriverId() + "\">Rate Driver</a></td>");
+                  out.println("<td><a href=\"http://"+site+"/driver/ratedriver?driverid=" + trip.getDriverId().getDriverId() + "\">Rate Driver</a></td>");
                 }
                 else{
                   out.println("<td style=\"color : red;\">"+"Canceled"+" </td>");
                 }
 
-                out.println("<td><a href=\"http://localhost:5000/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
 
       
 

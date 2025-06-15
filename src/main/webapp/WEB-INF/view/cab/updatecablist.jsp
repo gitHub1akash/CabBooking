@@ -107,6 +107,9 @@ import="java.util.*,org.demoProject.model.*"
                     <th></th>
                 </tr>
             </thead>
+			<%
+												String site = request.getServerName();
+												%>      
             <%
             List<Cab> list = (List<Cab>) request.getAttribute("lists");
             int i=1;
@@ -117,7 +120,7 @@ import="java.util.*,org.demoProject.model.*"
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
                 out.println("<td>" + cab.getCabId() + "</td>");
                 out.println("<td>" + cab.getCarType() + "</td>");
-                out.println("<td><a href=\"http://localhost:5000/cab/fetchcab?cabid=" + cab.getCabId() + "\">"+"<b>Update Cab</b>"+"</a></td>");
+                out.println("<td><a href=\"http://"+site+"/cab/fetchcab?cabid=" + cab.getCabId() + "\">"+"<b>Update Cab</b>"+"</a></td>");
 
       
 
