@@ -1,8 +1,9 @@
 package org.demoProject.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.demoProject.dto.LoginToken;
@@ -27,6 +28,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -267,25 +270,21 @@ public class AdminController {
 //	}
 
 	@GetMapping("/login")
-	public String login(Model model,HttpServletRequest request) {
+	public String login(Model model) {
 		LoginToken token = new LoginToken();
 		model.addAttribute("logintoken", token);
-		String site = request.getServerName();
-		int port = request.getServerPort(); 
-		System.out.println("SERVER + port: " + site + " : " + port);
 		return "admin/loginadmin";
 	}
 
 	@PostMapping("/validadmin")
 	public String checkLogin(@ModelAttribute("logintoken") LoginToken token, Model model) {
 		Admin admin = adminLoginImpl.checkLogin(token);
-		Integer adminid = null;
+		Integer adminid = admin.getAdminId();
+		System.out.println(adminid);
+		System.out.println(admin.getMobileNumber());
 		if (admin != null) {
-			adminid = admin.getAdminId();
-			System.out.println(adminid);
-			System.out.println(admin.getMobileNumber());
 			model.addAttribute("adminid", adminid);
-			//twilioService.sendSms(admin.getMobileNumber(), "You have logged in as admin.");
+			twilioService.sendSms(admin.getMobileNumber(), "You have logged in as admin.");
 			return "admin/profile"; // here add welcome $name then logged in
 		} 
 		else
@@ -307,9 +306,10 @@ public class AdminController {
 		model.addAttribute("logintoken", token);
 		adminId= null;
 		System.out.println(adminId);
-		//twilioService.sendSms(admin.getMobileNumber(), "You have logged out as admin.");
+		twilioService.sendSms(admin.getMobileNumber(), "You have logged out as admin.");
 	    return "admin/loginadmin";
 	}
+	
 	
 
 }

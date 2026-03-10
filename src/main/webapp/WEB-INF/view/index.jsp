@@ -2,9 +2,8 @@
 pageEncoding="ISO-8859-1"
 import="java.util.*,org.demoProject.model.*"
 %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +20,7 @@ import="java.util.*,org.demoProject.model.*"
   <meta name="author" content="" />
 
   <title>Urotaxi</title>
-  <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />

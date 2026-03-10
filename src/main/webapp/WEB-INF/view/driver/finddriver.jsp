@@ -93,9 +93,9 @@ pageEncoding="ISO-8859-1"%>
   <div class="container" style= "background-color:white; margin: auto; padding-top: 50px; width:600px; margin-bottom: 50px;">
     <form:form action="finddriver" modelAttribute="driver" method="post"> 
     <div class="form-group">
-      <label for="userName">Driver Username</label>
-      <form:input path="userName" 
-        class="form-control" name="" id="userName"/>
+      <label for="driverId">Driver Id</label>
+      <form:input path="driverId" 
+        class="form-control" name="" id="driverId"/>
     </div>
     <div class="form-group">
       <button type="submit"  class="btn" style= "background-color:#ffc107; ">Fetch Driver Record</button>

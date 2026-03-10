@@ -100,7 +100,7 @@ public class TripBookingController {
 				driverList = driverService.findBy4SeaterOrderByRating();
 		else
 			driverList = driverService.findBy4SeaterOrderByRating();
-		List<TripBooking> tripList = tripbookingservice.findByStatusDate(true,trip.getFromDateTime());
+		List<TripBooking> tripList = tripbookingservice.findByStatusAndDate(true,trip.getFromDateTime());
 		List<Driver> tripDriver = new ArrayList<>();
 		for (TripBooking trips : tripList) {
 			tripDriver.add(trips.getDriverId());
@@ -139,12 +139,12 @@ public class TripBookingController {
 		
 		if(tr==null)
 			return "tripbooking/addunsuccess";
-		//Message msg = twilioService.sendSms(("+91" + customer.getMobileNumber()), "Dear "+ tr.getCustomerId().getUserName()+"\nYour trip has been booked \nFrom :"+ tr.getFromLocation()+" \nTo :" +tr.getToLocation() + "\nOn :" + tr.getFromDateTime()+" \n Driver Name : "+tr.getDriverId().getUserName()+"\nDriver Mobile No :" +"+91" +tr.getDriverId().getMobileNumber());
+		Message msg = twilioService.sendSms(("+91" + customer.getMobileNumber()), "Dear "+ tr.getCustomerId().getUserName()+"\nYour trip has been booked \nFrom :"+ tr.getFromLocation()+" \nTo :" +tr.getToLocation() + "\nOn :" + tr.getFromDateTime()+" \n Driver Name : "+tr.getDriverId().getUserName()+"\nDriver Mobile No :" +"+91" +tr.getDriverId().getMobileNumber());
 		
-		//System.out.println(msg);
+		System.out.println(msg);
 		
-	//	msg = twilioService.sendSms(("+91" + tr.getDriverId().getMobileNumber()),"Dear "+ tr.getDriverId().getUserName()+ "\nYour have been booked \nFrom :"+ tr.getFromLocation()+" \nTo :" +tr.getToLocation() + "\nOn :" + tr.getFromDateTime());
-	//	System.out.println(msg);	
+		msg = twilioService.sendSms(("+91" + tr.getDriverId().getMobileNumber()),"Dear "+ tr.getDriverId().getUserName()+ "\nYour have been booked \nFrom :"+ tr.getFromLocation()+" \nTo :" +tr.getToLocation() + "\nOn :" + tr.getFromDateTime());
+		System.out.println(msg);	
 		return "tripbooking/addsuccess";
 		}
 	

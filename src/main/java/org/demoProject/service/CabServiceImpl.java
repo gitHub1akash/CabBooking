@@ -73,7 +73,10 @@ public class CabServiceImpl implements CabService{
 
 	@Override
 	public List<String> listAllCarType() {
-		return repository.listAllCarType();
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 
 }

@@ -20,8 +20,8 @@ public interface CabRepository extends JpaRepository<Cab, Integer>{
 
 	public Integer countByCarType(String carType);
 
-	@Query("SELECT distinct carType FROM Cab")
-	public List<String> listAllCarType();
+//	@Query("SELECT distinct carType FROM Cab")
+//	public List<String> listAllCarType();
 
 
 }

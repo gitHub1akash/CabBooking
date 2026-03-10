@@ -21,11 +21,13 @@ public interface TripBookingService {
 
 //	public TripBooking findBill(Integer customerId);
 	
-	public List<TripBooking> findByStatusDate(Boolean status, LocalDateTime date);
+	public List<TripBooking> findByStatusAndDate(Boolean status, LocalDateTime date);
 	
 	public List<String> getAllLoc1();
 	
 	public List<String> getAllLoc2();
 	
 	public List<String> getAllLoc2AgainstLoc1(String loc1);
+	
+	public List<TripBooking> findByStatus(Boolean status);
 }

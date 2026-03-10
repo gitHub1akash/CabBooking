@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"  
-pageEncoding="ISO-8859-1"
-import="java.util.*,org.demoProject.model.*"
-%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>   
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" 
+%>   
 <!DOCTYPE html>
 <html>
 
@@ -98,33 +96,13 @@ import="java.util.*,org.demoProject.model.*"
        
     <div class="form-group">
       <label for="fromLocation">PickUp</label>
-      <form:select required="true" path="fromLocation" 
-        class="form-control" name="" id="fromLocation">
-      <%
-        List<String> from = (List<String>) request.getAttribute("from");
-      
-          for(String s : from){
-            out.println("<option>");
-            out.println(s);
-            out.println("</option>");
-          }
-      %>  
-        </form:select>
+      <form:input required="true" path="fromLocation" 
+        class="form-control" name="" id="fromLocation"/>
     </div>
     <div class="form-group">
         <label for="toLocation">Drop</label>
-        <form:select required="true" path="toLocation" 
-          class="form-control" name="" id="toLocation">
-          <%
-            List<String> to = (List<String>) request.getAttribute("to");
-      
-            for(String s : to){
-              out.println("<option>");
-              out.println(s);
-              out.println("</option>");
-            }
-          %>  
-        </form:select>
+        <form:input required="true" path="toLocation" 
+          class="form-control" name="" id="toLocation"/>
       </div>
       <div class="form-group">
         <label for="fromDateTime">From Date</label>
@@ -135,15 +113,10 @@ import="java.util.*,org.demoProject.model.*"
         <label for="driver">Cab Type</label>
         <form:select path="driverId.cab.carType" 
           class="form-control" name="" id="carType">
-          <%
-            List<String> type = (List<String>) request.getAttribute("cabtype");
-      
-            for(String s : type){
-              out.println("<option>");
-              out.println(s);
-              out.println("</option>");
-            }
-          %>  
+          <option>bike</option>
+        <option>2-seater</option>
+        <option>4-seater</option>
+        <option>6-seater</option>
         </form:select>
       </div>
       <div class="form-group">

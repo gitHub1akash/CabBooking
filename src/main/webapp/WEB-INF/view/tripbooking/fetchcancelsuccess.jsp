@@ -97,7 +97,7 @@ pageEncoding="ISO-8859-1"%>
   <div class="container" style= "background-color:white; margin: auto; padding-top: 10px; width:600px; margin-bottom: 50px;">    
     <!-- <h1 style="padding-bottom:20px; text-align:center"><b class="fa fa-align-center" aria-hidden="true">Trip details</b></h1> -->
     <form:form action="canceltripprocess" modelAttribute="trip" method="post">
-        <form:hidden disabled="{true}" path="tripBookingId" value="${trip.tripBookingId}"/>
+        <form:hidden path="tripBookingId" value="${trip.tripBookingId}"/>
   <div class="form-group">
     <label for="tripbooking.fromLocation">PickUp</label>
     <form:input path="fromLocation" value="${trip.fromLocation}"

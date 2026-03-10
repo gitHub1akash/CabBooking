@@ -101,34 +101,33 @@ pageEncoding="ISO-8859-1"%>
 
     <div class="form-group">
         <label for="userName">User Name</label>
-        <form:input disabled="true"  path="userName" class="form-control" />
+        <form:input path="userName" class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="mobileNumber">Mobile Number</label>
-        <form:input disabled="true"  path="mobileNumber" class="form-control" />
+        <form:input path="mobileNumber" class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
-        <form:input disabled="true"  type="email" path="email" class="form-control" />
+        <form:input type="email" path="email" class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="licenceNo">Licence No</label>
-        <form:input disabled="true"  path="licenceNo" class="form-control" />
+        <form:input path="licenceNo" class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="rating">Rating</label>
-        <form:input disabled="true"  path="rating" class="form-control" />
+        <form:input path="rating" class="form-control" />
     </div>
     <div class="form-group">
       <label for="cab">Car Type</label>
-      <form:input disabled="true"  path="cab.carType" class="form-control" />
+      <form:input path="cab.carType" class="form-control" />
   </div>
     </form:form>
-    <a href="/trip/viewalltrips"><button class="btn" style="background-color: #ffc107; "><span>&#8592</span> Go Back</button></a>
 </div>
 
 

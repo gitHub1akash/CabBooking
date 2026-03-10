@@ -107,9 +107,6 @@ import="java.util.*,org.demoProject.model.*"
                     <th></th>
                 </tr>
             </thead>
-			<%
-												String site = request.getServerName();
-												%>      
             <%
             List<Driver> list = (List<Driver>) request.getAttribute("lists");
             int i=1;
@@ -120,7 +117,7 @@ import="java.util.*,org.demoProject.model.*"
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
                 out.println("<td>" + driver.getDriverId() + "</td>");
                 out.println("<td>" + driver.getUserName() + "</td>");
-                out.println("<td><a href=\"http://"+site+"/driver/fetchdeletedriver?driverid=" + driver.getDriverId() + "\">"+"<b>Delete Driver</b>"+"</a></td>");
+                out.println("<td><a href=\"http://localhost:5000/driver/fetchdeletedriver?driverid=" + driver.getDriverId() + "\">"+"<b>Delete Driver</b>"+"</a></td>");
                  out.println("</tr>");
 
             }

@@ -106,7 +106,7 @@ pageEncoding="ISO-8859-1"%>
                         <td>${count}</td>
                     </tr>
             </table>
-            <a href="countcabtypesx"><button class="btn" style="background-color: #ffc107; margin-top: 10px;"><span>&#8592</span> Go Back</button></a>
+            <a href="..//"><button class="btn" style="background-color: #ffc107; margin-top: 10px;"><span>&#8592</span> Go Back</button></a>
 
         </div>
 

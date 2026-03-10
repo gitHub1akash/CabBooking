@@ -40,4 +40,6 @@ public interface AdminService {
 	public List<TripBooking> findAllTripsCustomerwise();
 
 	public Optional<Admin> findByUserNameAndPassword(String userName,String password);
+
+	public Admin defaultAddAdmin();
 }
