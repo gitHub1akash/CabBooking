@@ -1,5 +1,6 @@
 package org.demoProject.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,6 +69,30 @@ public class TripBookingServiceImpl implements TripBookingService {
 	public List<TripBooking> findByStatus(Boolean status) {
 		// TODO Auto-generated method stub
 		return repository.findByStatus(status);
+	}
+
+	@Override
+	public List<TripBooking> findByStatusAndDate(Boolean status, LocalDateTime date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getAllLoc1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getAllLoc2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getAllLoc2AgainstLoc1(String loc1) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	@Override

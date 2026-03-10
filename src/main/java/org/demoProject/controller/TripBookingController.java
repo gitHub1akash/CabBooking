@@ -100,7 +100,7 @@ public class TripBookingController {
 				driverList = driverService.findBy4SeaterOrderByRating();
 		else
 			driverList = driverService.findBy4SeaterOrderByRating();
-		List<TripBooking> tripList = tripbookingservice.findByStatusDate(true,trip.getFromDateTime());
+		List<TripBooking> tripList = tripbookingservice.findByStatusAndDate(true,trip.getFromDateTime());
 		List<Driver> tripDriver = new ArrayList<>();
 		for (TripBooking trips : tripList) {
 			tripDriver.add(trips.getDriverId());

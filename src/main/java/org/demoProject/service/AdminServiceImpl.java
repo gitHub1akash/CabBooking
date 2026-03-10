@@ -131,5 +131,24 @@ public class AdminServiceImpl implements AdminService {
 	public Optional<Admin> findByUserNameAndPassword(String userName, String password) {
 		return repository.findByUserNameAndPassword(userName, password);
 	}
+	
+	public Admin defaultAddAdmin() {
+		
+		Admin admin = deleteAdmin(1);
+		admin = deleteAdmin(2);
+		admin = findByuserName("open");
+		if(admin!=null) {
+			return null;
+		}
+		admin = new Admin();
+		admin.setEmail("alu@gmail.com");
+		admin.setMobileNumber("9348574338");
+		admin.setPassword("open");
+		admin.setUserName("open");
+		System.out.println("admin added default \n\n\n\n admin added default\n\n\n\n\n admin added default");
+		
+		return repository.save(admin);
+	}
+	
 
 }

@@ -24,5 +24,7 @@ public interface CabService {
 	
 	public List<Cab> findAll();
 	
+	public List<String> listAllCarType();
+	
 	
 }

@@ -1,5 +1,6 @@
 package org.demoProject.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.demoProject.model.TripBooking;
@@ -19,6 +20,14 @@ public interface TripBookingService {
 	public List<TripBooking> findAllTrips(Integer customerId);
 
 //	public TripBooking findBill(Integer customerId);
+	
+	public List<TripBooking> findByStatusAndDate(Boolean status, LocalDateTime date);
+	
+	public List<String> getAllLoc1();
+	
+	public List<String> getAllLoc2();
+	
+	public List<String> getAllLoc2AgainstLoc1(String loc1);
 	
 	public List<TripBooking> findByStatus(Boolean status);
 }
