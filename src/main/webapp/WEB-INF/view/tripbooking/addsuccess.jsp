@@ -15,7 +15,7 @@ pageEncoding="ISO-8859-1"%>
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->

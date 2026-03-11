@@ -18,7 +18,7 @@ import="java.util.*,org.demoProject.model.*"
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->
@@ -117,7 +117,7 @@ import="java.util.*,org.demoProject.model.*"
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
                 out.println("<td>" + driver.getDriverId() + "</td>");
                 out.println("<td>" + driver.getUserName() + "</td>");
-                out.println("<td><a href=\"http://localhost:5000/driver/fetchdeletedriver?driverid=" + driver.getDriverId() + "\">"+"<b>Delete Driver</b>"+"</a></td>");
+                out.println("<td><a href=\"/driver/fetchdeletedriver?driverid=" + driver.getDriverId() + "\">"+"<b>Delete Driver</b>"+"</a></td>");
                  out.println("</tr>");
 
             }

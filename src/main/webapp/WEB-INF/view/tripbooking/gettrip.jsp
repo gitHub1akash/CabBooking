@@ -17,7 +17,7 @@ import="java.util.*,org.demoProject.model.*"
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->

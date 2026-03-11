@@ -18,7 +18,7 @@ import="java.util.*,org.demoProject.model.*"
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->
@@ -117,7 +117,7 @@ import="java.util.*,org.demoProject.model.*"
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
                 out.println("<td>" + cab.getCabId() + "</td>");
                 out.println("<td>" + cab.getCarType() + "</td>");
-                out.println("<td><a href=\"http://localhost:5000/cab/fetchcab?cabid=" + cab.getCabId() + "\">"+"<b>Update Cab</b>"+"</a></td>");
+                out.println("<td><a href=\"/cab/fetchcab?cabid=" + cab.getCabId() + "\">"+"<b>Update Cab</b>"+"</a></td>");
 
       
 

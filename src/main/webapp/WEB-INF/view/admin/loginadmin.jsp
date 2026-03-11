@@ -15,7 +15,7 @@ pageEncoding="ISO-8859-1"%>
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->
@@ -92,7 +92,7 @@ pageEncoding="ISO-8859-1"%>
   </div>
   <div class="container" style= "background-color:white; margin: auto; padding-top: 50px; width:600px; margin-bottom: 50px;">
     <h1><i class="fa fa-font-awesome" aria-hidden="true">Sign in to your account</i></h1>
-    <form:form action="validadmin" modelAttribute="logintoken" method="post"> 
+    <form:form action="admin/validadmin" modelAttribute="logintoken" method="post"> 
     <div class="form-group">
       <label for="userName">User Name</label>
       <form:input required="true" path="userName" 

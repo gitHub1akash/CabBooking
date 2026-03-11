@@ -18,7 +18,7 @@ import="java.util.*,org.demoProject.model.*"
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Urotaxi</title>
+  <title>Urotaxi</title><base href="${pageContext.request.contextPath}/">
 
 
   <!-- slider stylesheet -->
@@ -121,8 +121,8 @@ import="java.util.*,org.demoProject.model.*"
                 out.println("<tr>");
                 out.println("<td scope=\"row\">"+ (i++) +"</td>");
                 out.println("<td>"+trip.getFromDateTime()+" </td>");
-                out.println("<td><a href=\"http://localhost:5000/driver/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
-                out.println("<td><a href=\"http://localhost:5000/customer/getcustomer?tripid=" + trip.getTripBookingId() + "\">"+trip.getCustomerId().getUserName()+"</a></td>");
+                out.println("<td><a href=\"/driver/getdriver?tripid=" + trip.getTripBookingId() + "\">"+trip.getDriverId().getUserName()+"</a></td>");
+                out.println("<td><a href=\"/customer/getcustomer?tripid=" + trip.getTripBookingId() + "\">"+trip.getCustomerId().getUserName()+"</a></td>");
                 
                 out.println("<td>"+trip.getFromLocation()+" </td>");
                 out.println("<td>"+trip.getToLocation()+" </td>");
@@ -133,7 +133,7 @@ import="java.util.*,org.demoProject.model.*"
                 else{
                   out.println("<td style=\"color : red;\">"+"Canceled"+" </td>");
                 }
-                out.println("<td><a href=\"http://localhost:5000/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
+                out.println("<td><a href=\"/trip/gettrip?tripid=" + trip.getTripBookingId() + "\">"+"<b>View More</b>"+"</a></td>");
 
       
 
