@@ -230,7 +230,8 @@ public class CustomerController {
 		Customer customer = customerLoginImpl.checkLogin(token);
 		if (customer != null) {
 			model.addAttribute("customerid", customer.getCustomerId());
-			return "customer/profile"; // here add welcome $name then logged in
+			return "redirect:/customer.html";
+			//return "customer/profile"; // here add welcome $name then logged in
 		} 
 		else
 			return "customer/profilenotfound";

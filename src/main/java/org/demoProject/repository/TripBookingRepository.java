@@ -1,5 +1,6 @@
 package org.demoProject.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.demoProject.model.TripBooking;
@@ -33,5 +34,19 @@ public interface TripBookingRepository extends JpaRepository<TripBooking, Intege
 	public List<TripBooking> findByDriverAsc();
 	
 	public List<TripBooking> findByStatus(Boolean status);
+	
+	@Query("from TripBooking where status = :status and :fromDate < toDateTime")
+	public List<TripBooking> findByStatusAndDate(Boolean status, LocalDateTime fromDate);
+	
+	@Query("Select distinct location1 from Address order by location1")
+	public List<String> getAllLocationFrom();
+	
+	@Query("Select distinct location2 from Address order by location2")
+	public List<String> getAllLocationTo();
+	
+	@Query("Select location2 from Address where location1 =: fromLocation order by location2")
+	public List<String> getLocation2AgainstLocation1(String fromLocation);
+	
+	
 	
 }

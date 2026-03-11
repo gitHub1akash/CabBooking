@@ -72,29 +72,28 @@ public class TripBookingServiceImpl implements TripBookingService {
 	}
 
 	@Override
-	public List<TripBooking> findByStatusAndDate(Boolean status, LocalDateTime date) {
+	public List<TripBooking> findByStatusDate(Boolean status, LocalDateTime date) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findByStatusAndDate(status,date);
 	}
 
 	@Override
 	public List<String> getAllLoc1() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return repository.getAllLocationFrom();
 	}
-
+	
 	@Override
 	public List<String> getAllLoc2() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return repository.getAllLocationTo();
 	}
 
 	@Override
 	public List<String> getAllLoc2AgainstLoc1(String loc1) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.getLocation2AgainstLocation1(loc1);
 	}
-
 //	@Override
 //	public TripBooking calculateBill(Integer customerId) {
 //		return repository;
